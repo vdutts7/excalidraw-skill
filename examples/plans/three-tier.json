@@ -1,0 +1,16 @@
+{
+  "output": "three_tier.excalidraw",
+  "elements": [
+    {"kind": "text", "id": "title", "x": 40, "y": -20, "w": 400, "h": 40, "text": "3-tier web stack", "fontSize": 24},
+    {"kind": "zone", "id": "z_edge", "x": 0, "y": 0, "w": 1100, "h": 260, "label": "Edge"},
+    {"kind": "rect", "id": "cdn", "x": 40, "y": 60, "w": 220, "h": 120, "bg": "#e3f2fd", "stroke": "#1864ab", "label": "CDN"},
+    {"kind": "zone", "id": "z_api", "x": 0, "y": 300, "w": 1100, "h": 260, "label": "Application"},
+    {"kind": "rect", "id": "api", "x": 440, "y": 360, "w": 220, "h": 120, "bg": "#d0bfff", "stroke": "#7048e8", "label": "API Server"},
+    {"kind": "zone", "id": "z_data", "x": 0, "y": 600, "w": 1100, "h": 260, "label": "Data"},
+    {"kind": "rect", "id": "pg", "x": 340, "y": 660, "w": 220, "h": 120, "bg": "#b2f2bb", "stroke": "#2f9e44", "label": "Postgres"},
+    {"kind": "rect", "id": "redis", "x": 640, "y": 660, "w": 220, "h": 120, "bg": "#ffe8cc", "stroke": "#fd7e14", "label": "Redis"},
+    {"kind": "arrow", "id": "a1", "x": 260, "y": 120, "dx": 180, "dy": 300, "stroke": "#1971c2", "label": "HTTPS"},
+    {"kind": "arrow", "id": "a2", "x": 550, "y": 480, "dx": 0, "dy": 180, "stroke": "#7048e8", "label": "SQL"},
+    {"kind": "arrow", "id": "a3", "x": 660, "y": 480, "dx": 120, "dy": 180, "stroke": "#fd7e14", "label": "cache"}
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "_source": "https://github.com/excalidraw/excalidraw/blob/master/packages/common/src/constants.ts",
+  "_element_types": "https://github.com/excalidraw/excalidraw/blob/master/packages/element/src/types.ts",
+
+  "FILE_FORMAT": {
+    "type": "excalidraw",
+    "version": 2,
+    "source": "<string: app name or URL>",
+    "elements": "<ExcalidrawElement[]>",
+    "appState": { "gridSize": null, "viewBackgroundColor": "#ffffff" },
+    "files": {}
+  },
+
+  "VERSIONS": {
+    "excalidraw": 2,
+    "excalidrawLibrary": 2
+  },
+
+  "ELEMENT_TYPES": [
+    "rectangle", "diamond", "ellipse",
+    "arrow", "line",
+    "text",
+    "image",
+    "freedraw",
+    "frame", "magicframe",
+    "embeddable", "iframe"
+  ],
+
+  "DRAWABLE_TYPES": ["rectangle", "diamond", "ellipse", "arrow", "line", "text"],
+
+  "ROUGHNESS": {
+    "architect": 0,
+    "artist": 1,
+    "cartoonist": 2,
+    "_default": 1,
+    "_note": "Use 1 (artist) for hand-drawn/excalidraw aesthetic. Use 0 (architect) for clean diagrams."
+  },
+
+  "STROKE_WIDTH": {
+    "thin": 1,
+    "bold": 2,
+    "extraBold": 4,
+    "_default": 2
+  },
+
+  "FILL_STYLE": {
+    "values": ["hachure", "cross-hatch", "solid", "zigzag"],
+    "_default": "solid",
+    "_note": "hachure = diagonal lines fill; solid = flat fill; zigzag = zigzag lines"
+  },
+
+  "STROKE_STYLE": {
+    "values": ["solid", "dashed", "dotted"],
+    "_default": "solid"
+  },
+
+  "ROUNDNESS": {
+    "LEGACY": 1,
+    "PROPORTIONAL_RADIUS": 2,
+    "ADAPTIVE_RADIUS": 3,
+    "_note": "Use type:3 (ADAPTIVE_RADIUS) for rectangles/shapes. Use type:2 (PROPORTIONAL_RADIUS) for arrows/linear elements. null = sharp corners."
+  },
+
+  "FONT_FAMILY": {
+    "Virgil": 1,
+    "Helvetica": 2,
+    "Cascadia": 3,
+    "Excalifont": 5,
+    "Nunito": 6,
+    "Lilita One": 7,
+    "Comic Shanns": 8,
+    "Liberation Sans": 9,
+    "_default": 1,
+    "_note": "1=Virgil is the classic hand-drawn font. 5=Excalifont is the newer default. For excalidraw aesthetic use 1 or 5."
+  },
+
+  "TEXT_ALIGN": {
+    "LEFT": "left",
+    "CENTER": "center",
+    "RIGHT": "right",
+    "_default": "center"
+  },
+
+  "VERTICAL_ALIGN": {
+    "TOP": "top",
+    "MIDDLE": "middle",
+    "BOTTOM": "bottom",
+    "_default": "middle"
+  },
+
+  "ARROWHEAD": {
+    "values": [
+      "arrow", "bar", "circle", "circle_outline",
+      "triangle", "triangle_outline",
+      "diamond", "diamond_outline",
+      null
+    ],
+    "_default_end": "arrow",
+    "_default_start": null,
+    "_cardinality": [
+      "cardinality_one", "cardinality_many",
+      "cardinality_one_or_many", "cardinality_exactly_one",
+      "cardinality_zero_or_one", "cardinality_zero_or_many"
+    ]
+  },
+
+  "BIND_MODE": {
+    "values": ["inside", "orbit", "skip"],
+    "_default": "inside"
+  },
+
+  "DEFAULT_ELEMENT_PROPS": {
+    "strokeColor": "#1e1e1e",
+    "backgroundColor": "transparent",
+    "fillStyle": "solid",
+    "strokeWidth": 2,
+    "strokeStyle": "solid",
+    "roughness": 1,
+    "opacity": 100,
+    "locked": false
+  },
+
+  "DEFAULT_FONT_SIZE": 20,
+  "DEFAULT_LINE_HEIGHT": 1.25,
+
+  "INDEX_FIELD": {
+    "_note": "Fractional index string for z-ordering. Use simple ascending strings.",
+    "convention": {
+      "zone_backgrounds": ["Za", "Zb", "Zc"],
+      "shapes": ["a1", "a2", "a3"],
+      "arrows": ["b1", "b2", "b3"],
+      "text": ["c1", "c2", "c3"]
+    }
+  },
+
+  "SEED_AND_VERSION": {
+    "_note": "seed and versionNonce are random ints. version starts at 1. updated is epoch ms.",
+    "seed_range": [100000, 9999999],
+    "version": 1,
+    "updated": 1747000000000
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "output": "minimal.excalidraw",
+  "elements": [
+    {"kind": "zone", "id": "z1", "x": 0, "y": 0, "w": 600, "h": 300, "label": "Backend"},
+    {"kind": "rect", "id": "r1", "x": 40, "y": 60, "w": 220, "h": 120, "bg": "#a5d8ff", "stroke": "#1971c2", "label": "API Server"},
+    {"kind": "diamond", "id": "d1", "x": 320, "y": 80, "w": 200, "h": 120, "bg": "#fff3bf", "stroke": "#fab005", "label": "Decision"},
+    {"kind": "ellipse", "id": "e1", "x": 580, "y": 80, "w": 180, "h": 120, "bg": "#b2f2bb", "stroke": "#2f9e44"},
+    {"kind": "text", "id": "t1", "x": 40, "y": 10, "w": 200, "h": 30, "text": "Element kinds", "fontSize": 20},
+    {"kind": "arrow", "id": "a1", "x": 260, "y": 120, "dx": 60, "dy": 0, "stroke": "#1971c2", "label": "REST"}
+  ]
+}

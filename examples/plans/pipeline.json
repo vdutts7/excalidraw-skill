@@ -1,0 +1,11 @@
+{
+  "output": "pipeline.excalidraw",
+  "elements": [
+    {"kind": "text", "id": "title", "x": 40, "y": 120, "w": 320, "h": 40, "text": "ETL pipeline", "fontSize": 24},
+    {"kind": "rect", "id": "ingest", "x": 40, "y": 200, "w": 220, "h": 120, "bg": "#a5d8ff", "stroke": "#1971c2", "label": "Ingest"},
+    {"kind": "rect", "id": "transform", "x": 440, "y": 200, "w": 220, "h": 120, "bg": "#fff3bf", "stroke": "#fab005", "label": "Transform"},
+    {"kind": "rect", "id": "load", "x": 840, "y": 200, "w": 220, "h": 120, "bg": "#b2f2bb", "stroke": "#2f9e44", "label": "Load"},
+    {"kind": "arrow", "id": "a1", "x": 260, "y": 260, "dx": 180, "dy": 0, "stroke": "#1971c2", "label": "raw"},
+    {"kind": "arrow", "id": "a2", "x": 660, "y": 260, "dx": 180, "dy": 0, "stroke": "#2f9e44", "label": "curated"}
+  ]
+}

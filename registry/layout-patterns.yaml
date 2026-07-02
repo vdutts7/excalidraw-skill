@@ -1,0 +1,107 @@
+# Source: excalidraw-toolkit SKILL.md sizing rules + validated coordinates
+# https://github.com/edwingao28/excalidraw-toolkit/blob/main/plugins/excalidraw/skills/excalidraw/SKILL.md
+
+sizing_rules:
+  box:
+    width_default: 220
+    height_default: 120
+    width_with_multiline: 240
+    height_with_multiline: 160
+  gaps:
+    horizontal_labeled_arrow: 180    # between box edges when arrow has text label
+    horizontal_unlabeled_arrow: 120
+    vertical_between_rows: 200       # between row box edges
+    zone_padding: 50                 # zone rect extends this far past child bboxes
+    zone_header_to_box: 40
+  columns:
+    labeled:   400   # box_width + gap  (220 + 180)
+    unlabeled: 340   # box_width + gap  (220 + 120)
+  fonts:
+    title: 24
+    section_header: 18
+    label: 16
+    zone_label: 14
+    annotation: 14
+  zone:
+    roughness: 0
+    stroke_style: dashed
+    opacity: 40
+    stroke_width: 1
+
+layout_patterns:
+
+  vertical_flow:
+    _description: "Top-to-bottom, zones stacked. Most web app / system arch diagrams."
+    _best_for: ["request-response", "frontend+API+DB layers", "layered system architecture"]
+    zone_y_pitch: 300   # top of zone N+1 = top of zone N + 300
+    columns: [40, 440, 840, 1240]
+    row_y_start: 60     # first box y inside a zone
+    title_y_offset: -60 # above topmost element
+    example_coordinates:
+      zone1: { x: 0,   y: 0,   w: 1100, h: 260 }
+      zone2: { x: 0,   y: 350, w: 1100, h: 260 }
+      zone3: { x: 0,   y: 700, w: 1100, h: 260 }
+      box_a: { x: 40,  y: 60,  w: 220,  h: 120 }
+      box_b: { x: 440, y: 60,  w: 220,  h: 120 }
+      box_c: { x: 840, y: 60,  w: 220,  h: 120 }
+
+  horizontal_pipeline:
+    _description: "Left-to-right chain. ETL, CI/CD, data pipelines."
+    _best_for: ["linear transform chains", "pipelines", "sequences"]
+    all_boxes_same_y: 200
+    x_pitch: 400    # labeled; 340 for unlabeled
+    title_y_offset: -60
+
+  hub_and_spoke:
+    _description: "Central hub, spokes at ~200px radius."
+    _best_for: ["event-driven", "message bus", "microservices fan-out"]
+    hub: { x: 400, y: 300, w: 220, h: 120 }
+    spoke_radius: 260
+    spoke_positions:
+      top:         { dx: 0,    dy: -260 }
+      bottom:      { dx: 0,    dy: 260  }
+      left:        { dx: -260, dy: 0    }
+      right:       { dx: 260,  dy: 0    }
+      top_left:    { dx: -184, dy: -184 }
+      top_right:   { dx: 184,  dy: -184 }
+      bottom_left: { dx: -184, dy: 184  }
+      bottom_right:{ dx: 184,  dy: 184  }
+
+  data_flow_threading:
+    _description: "Parameter/request traced through architectural layers."
+    _best_for: ["call chains", "data traces", "auth flows"]
+    columns:
+      layer_labels: -120    # left, gray text
+      main_flow: 60         # center boxes
+      annotations: 570      # right, orange text
+    row_pitch: 150          # y distance between flow boxes
+    box: { w: 300, h: 65 }
+    split_left:  { x: -100, w: 290, h: 65 }
+    split_right: { x: 230,  w: 290, h: 65 }
+    decision_diamond: { w: 200, h: 120 }
+    why_box: { x: 460, y: 80, w: 440, h: 310 }
+
+  multi_container:
+    _description: "Multiple host/container regions side by side with nested boxes."
+    _best_for: ["distributed systems", "multi-host diagrams", "isolated environments"]
+    container_gap: 80
+    container_width: 530
+    container_height: 660
+    inner_box_margin: 25
+    inner_box_gap: 18
+    standalone_box_below: { gap_below_container: 80 }
+
+arrow_routing:
+  _rule: "points[0] always [0,0]. x,y = start point canvas coords. points[1] = [end_x-start_x, end_y-start_y]."
+  _elbow: "For L-shaped arrows add a midpoint: [[0,0],[0,dy],[dx,dy]]"
+  _dashed_style: "strokeStyle: dashed for async / optional / out-of-band flows"
+  edge_midpoints:
+    top_center:    "x + w/2, y"
+    bottom_center: "x + w/2, y + h"
+    left_center:   "x, y + h/2"
+    right_center:  "x + w, y + h/2"
+  binding_fixedPoints:
+    top_center:    [0.5, 0.0]
+    bottom_center: [0.5, 1.0]
+    left_center:   [0.0, 0.5]
+    right_center:  [1.0, 0.5]

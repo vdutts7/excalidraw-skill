@@ -1,0 +1,58 @@
+{
+  "_source": "https://github.com/excalidraw/excalidraw/blob/master/packages/common/src/colors.ts",
+  "_note": "COLOR_PALETTE indexes: [0]=50-weight lightest, [1]=200, [2]=400, [3]=600, [4]=800 darkest. Default bg uses index 1, default stroke uses index 4.",
+
+  "COLOR_PALETTE": {
+    "transparent": "transparent",
+    "black": "#1e1e1e",
+    "white": "#ffffff",
+    "gray":   ["#f8f9fa", "#e9ecef", "#ced4da", "#868e96", "#343a40"],
+    "red":    ["#fff5f5", "#ffc9c9", "#ff8787", "#fa5252", "#e03131"],
+    "pink":   ["#fff0f6", "#fcc2d7", "#f783ac", "#e64980", "#c2255c"],
+    "grape":  ["#f8f0fc", "#eebefa", "#da77f2", "#be4bdb", "#9c36b5"],
+    "violet": ["#f3f0ff", "#d0bfff", "#9775fa", "#7950f2", "#6741d9"],
+    "blue":   ["#e7f5ff", "#a5d8ff", "#4dabf7", "#228be6", "#1971c2"],
+    "cyan":   ["#e3fafc", "#99e9f2", "#3bc9db", "#15aabf", "#0c8599"],
+    "teal":   ["#e6fcf5", "#96f2d7", "#38d9a9", "#12b886", "#099268"],
+    "green":  ["#ebfbee", "#b2f2bb", "#69db7c", "#40c057", "#2f9e44"],
+    "yellow": ["#fff9db", "#ffec99", "#ffd43b", "#fab005", "#f08c00"],
+    "orange": ["#fff4e6", "#ffd8a8", "#ffa94d", "#fd7e14", "#e8590c"],
+    "bronze": ["#f8f1ee", "#eaddd7", "#d2bab0", "#a18072", "#846358"]
+  },
+
+  "SEMANTIC_ARCH_PALETTE": {
+    "_note": "From excalidraw-toolkit — semantic meaning → bg/stroke pairs using COLOR_PALETTE",
+    "frontend_ui":   { "bg": "#a5d8ff", "stroke": "#1971c2", "_palette": "blue[1]/blue[4]" },
+    "backend_api":   { "bg": "#d0bfff", "stroke": "#7048e8", "_palette": "violet[1]/~violet[4]" },
+    "database":      { "bg": "#b2f2bb", "stroke": "#2f9e44", "_palette": "green[1]/green[4]" },
+    "cache":         { "bg": "#ffe8cc", "stroke": "#fd7e14", "_palette": "orange[1]/orange[3]" },
+    "queue_event":   { "bg": "#fff3bf", "stroke": "#fab005", "_palette": "yellow[1]/yellow[3]" },
+    "storage":       { "bg": "#ffec99", "stroke": "#f08c00", "_palette": "yellow[1]/yellow[4]" },
+    "ai_ml":         { "bg": "#e599f7", "stroke": "#9c36b5", "_palette": "grape[2]/grape[4]" },
+    "external_api":  { "bg": "#ffc9c9", "stroke": "#e03131", "_palette": "red[1]/red[4]" },
+    "decision_gate": { "bg": "#ffd8a8", "stroke": "#e8590c", "_palette": "orange[1]/orange[4]" },
+    "zone_group":    { "bg": "#e9ecef", "stroke": "#868e96", "_palette": "gray[1]/gray[3]" },
+    "primary_node":  { "bg": "#d3f9d8", "stroke": "#2f9e44", "_palette": "green lightest/green[4]" },
+    "restricted_node": { "bg": "#ffe3e3", "stroke": "#c92a2a", "_palette": "red light/~red[4]" },
+    "client_node":   { "bg": "#e3f2fd", "stroke": "#1864ab", "_palette": "blue lightest/~blue[4]" },
+    "secure_store":  { "bg": "#e5dbff", "stroke": "#7048e8", "_palette": "violet[1]/~violet[3]" },
+    "buffer_zone":   { "bg": "#fff3bf", "stroke": "#e67700", "_palette": "yellow[1]/~yellow[4]" },
+    "neutral_box":   { "bg": "#f8f9fa", "stroke": "#495057", "_palette": "gray[0]/~gray[3]" }
+  },
+
+  "ARROW_SEMANTIC_COLORS": {
+    "encrypted_push":  "#2f9e44",
+    "encrypted_pull":  "#c92a2a",
+    "bootstrap":       "#1864ab",
+    "alternate_path":  "#2f9e44",
+    "default":         "#1e1e1e",
+    "warning_flow":    "#e8590c",
+    "async_flow":      "#868e96"
+  },
+
+  "STROKE_STYLE_SEMANTICS": {
+    "solid":  "synchronous / primary flow",
+    "dashed": "async / optional / alternate-path / out-of-band",
+    "dotted": "weak dependency / monitoring"
+  }
+}

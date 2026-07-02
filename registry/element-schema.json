@@ -1,0 +1,175 @@
+{
+  "_source": "https://github.com/excalidraw/excalidraw/blob/master/packages/element/src/types.ts",
+
+  "BASE_FIELDS": {
+    "_required_all": true,
+    "id": "string (unique)",
+    "type": "string (see ELEMENT_TYPES)",
+    "x": "number",
+    "y": "number",
+    "width": "number",
+    "height": "number",
+    "angle": 0,
+    "strokeColor": "#1e1e1e",
+    "backgroundColor": "transparent",
+    "fillStyle": "solid",
+    "strokeWidth": 2,
+    "strokeStyle": "solid",
+    "roughness": 1,
+    "opacity": 100,
+    "groupIds": [],
+    "frameId": null,
+    "index": "string (fractional, e.g. 'a1')",
+    "roundness": null,
+    "seed": "int",
+    "version": 1,
+    "versionNonce": "int",
+    "isDeleted": false,
+    "boundElements": null,
+    "updated": "epoch_ms",
+    "link": null,
+    "locked": false
+  },
+
+  "RECTANGLE": {
+    "_extends": "BASE_FIELDS",
+    "type": "rectangle",
+    "roundness": { "type": 3 },
+    "_note": "roundness type:3 (ADAPTIVE_RADIUS) for rounded corners. null for sharp."
+  },
+
+  "DIAMOND": {
+    "_extends": "BASE_FIELDS",
+    "type": "diamond",
+    "roundness": { "type": 2 },
+    "_note": "roundness type:2 (PROPORTIONAL_RADIUS) for diamonds."
+  },
+
+  "ELLIPSE": {
+    "_extends": "BASE_FIELDS",
+    "type": "ellipse",
+    "roundness": { "type": 2 },
+    "_note": "roundness type:2 for ellipses."
+  },
+
+  "TEXT": {
+    "_extends": "BASE_FIELDS",
+    "type": "text",
+    "text": "string (use \\n for newlines)",
+    "originalText": "string (same as text)",
+    "fontSize": 20,
+    "fontFamily": 1,
+    "textAlign": "center",
+    "verticalAlign": "middle",
+    "containerId": null,
+    "autoResize": true,
+    "lineHeight": 1.25,
+    "roundness": null,
+    "backgroundColor": "transparent",
+    "_container_text_note": "When text is inside a shape: set containerId=shape_id, set boundElements on shape to [{id: text_id, type: 'text'}]. x/y position relative to container does NOT matter — excalidraw auto-centers it.",
+    "_standalone_note": "For standalone text: containerId=null, no boundElements on other elements."
+  },
+
+  "ARROW": {
+    "_extends": "BASE_FIELDS",
+    "type": "arrow",
+    "points": "[[0,0],[dx,dy]] — relative coords from (x,y); first point always [0,0]",
+    "startBinding": null,
+    "endBinding": null,
+    "startArrowhead": null,
+    "endArrowhead": "arrow",
+    "elbowed": false,
+    "roundness": { "type": 2 },
+    "_binding_schema": {
+      "elementId": "string (target shape id)",
+      "fixedPoint": "[h_ratio, v_ratio] where 0.0-1.0; [0.5,0]=top-center, [0.5,1]=bottom-center, [0,0.5]=left-center, [1,0.5]=right-center",
+      "mode": "inside"
+    },
+    "_points_note": "x,y is the START point in canvas coords. points[0] = [0,0] always. points[1] = [end_x - start_x, end_y - start_y]. For multi-point paths, add intermediate points.",
+    "_width_height_note": "width = abs(points last dx), height = abs(points last dy)"
+  },
+
+  "LINE": {
+    "_extends": "ARROW",
+    "type": "line",
+    "startArrowhead": null,
+    "endArrowhead": null,
+    "polygon": false
+  },
+
+  "TEMPLATE_RECT_WITH_LABEL": {
+    "_note": "Shape + contained text. Two elements needed.",
+    "shape": {
+      "id": "my-box",
+      "type": "rectangle",
+      "x": 100, "y": 100, "width": 200, "height": 80,
+      "angle": 0,
+      "strokeColor": "#1971c2", "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid",
+      "roughness": 1, "opacity": 100,
+      "groupIds": [], "frameId": null, "index": "a1",
+      "roundness": { "type": 3 },
+      "seed": 123456, "version": 1, "versionNonce": 789012,
+      "isDeleted": false,
+      "boundElements": [{ "id": "my-box-label", "type": "text" }],
+      "updated": 1747000000000, "link": null, "locked": false
+    },
+    "label": {
+      "id": "my-box-label",
+      "type": "text",
+      "x": 100, "y": 100, "width": 200, "height": 80,
+      "angle": 0,
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid",
+      "roughness": 1, "opacity": 100,
+      "groupIds": [], "frameId": null, "index": "c1",
+      "roundness": null,
+      "seed": 234567, "version": 1, "versionNonce": 890123,
+      "isDeleted": false, "boundElements": [],
+      "updated": 1747000000000, "link": null, "locked": false,
+      "text": "My Box\nSubtitle",
+      "originalText": "My Box\nSubtitle",
+      "fontSize": 16, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "middle",
+      "containerId": "my-box",
+      "autoResize": true, "lineHeight": 1.25
+    }
+  },
+
+  "TEMPLATE_ARROW": {
+    "_note": "Arrow from (100,200) to (300,200) — horizontal right",
+    "id": "arr1",
+    "type": "arrow",
+    "x": 100, "y": 200,
+    "width": 200, "height": 0,
+    "angle": 0,
+    "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+    "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid",
+    "roughness": 1, "opacity": 100,
+    "groupIds": [], "frameId": null, "index": "b1",
+    "roundness": { "type": 2 },
+    "seed": 345678, "version": 1, "versionNonce": 901234,
+    "isDeleted": false, "boundElements": [],
+    "updated": 1747000000000, "link": null, "locked": false,
+    "points": [[0, 0], [200, 0]],
+    "startBinding": null, "endBinding": null,
+    "startArrowhead": null, "endArrowhead": "arrow",
+    "elbowed": false
+  },
+
+  "TEMPLATE_ZONE": {
+    "_note": "Background zone rectangle — low opacity, dashed, no roundness, goes FIRST in elements array",
+    "id": "zone-backend",
+    "type": "rectangle",
+    "x": 0, "y": 0, "width": 600, "height": 200,
+    "angle": 0,
+    "strokeColor": "#868e96", "backgroundColor": "#e9ecef",
+    "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "dashed",
+    "roughness": 0, "opacity": 40,
+    "groupIds": [], "frameId": null, "index": "Za",
+    "roundness": { "type": 3 },
+    "seed": 456789, "version": 1, "versionNonce": 12345,
+    "isDeleted": false, "boundElements": null,
+    "updated": 1747000000000, "link": null, "locked": false
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "_sources": [
+    "excalidraw-toolkit SKILL.md common mistakes table",
+    "excalidraw source types.ts binding schema"
+  ],
+
+  "GOTCHAS": [
+    {
+      "id": "EXC-001",
+      "mistake": "Arrow points[0] not [0,0]",
+      "wrong": "points: [[100,200],[300,400]]",
+      "right": "points: [[0,0],[200,200]] with x=100,y=200",
+      "rule": "points are RELATIVE to (x,y). First point ALWAYS [0,0]."
+    },
+    {
+      "id": "EXC-002",
+      "mistake": "width/height wrong for arrows",
+      "wrong": "width:0, height:0 on a diagonal arrow",
+      "right": "width=abs(last_dx), height=abs(last_dy)",
+      "rule": "width and height on an arrow = bounding box of its points array."
+    },
+    {
+      "id": "EXC-003",
+      "mistake": "Text not inside shape — missing containerId",
+      "wrong": "text element with containerId:null but positioned inside a rect",
+      "right": "set containerId:'shape-id' on text; add {id:'text-id',type:'text'} to shape boundElements",
+      "rule": "Container binding is bidirectional: shape.boundElements + text.containerId."
+    },
+    {
+      "id": "EXC-004",
+      "mistake": "Zone rect appears ON TOP of shapes",
+      "wrong": "zone rect listed after shapes in elements array",
+      "right": "zone rects FIRST in elements array, shapes second",
+      "rule": "z-order is array order; backgrounds must come before foreground shapes."
+    },
+    {
+      "id": "EXC-005",
+      "mistake": "index field missing or duplicated",
+      "wrong": "all elements have index:'a0'",
+      "right": "each element has a unique, ascending index string",
+      "rule": "index is a fractional index — must be unique per element, determines render order."
+    },
+    {
+      "id": "EXC-006",
+      "mistake": "roundness wrong type for shape",
+      "wrong": "{type:1} on a rectangle",
+      "right": "{type:3} for rectangles, {type:2} for diamonds/ellipses/arrows, null for sharp",
+      "rule": "ROUNDNESS.LEGACY=1 is deprecated. Use ADAPTIVE_RADIUS=3 for rects, PROPORTIONAL_RADIUS=2 for linear."
+    },
+    {
+      "id": "EXC-007",
+      "mistake": "fontFamily is a string instead of int",
+      "wrong": "fontFamily: 'Virgil'",
+      "right": "fontFamily: 1",
+      "rule": "fontFamily is always an integer. Virgil=1, Helvetica=2, Cascadia=3, Excalifont=5."
+    },
+    {
+      "id": "EXC-008",
+      "mistake": "Arrow labels need gap between boxes",
+      "wrong": "connected boxes 80px apart with a labeled arrow",
+      "right": "minimum 150px gap between box edges for labeled arrows",
+      "rule": "Arrow label text needs ~120px clearance. Labeled gap >= 150px. Unlabeled >= 100px."
+    },
+    {
+      "id": "EXC-009",
+      "mistake": "Ghost elements from old diagram when appending",
+      "wrong": "appending new elements without clearing old ones",
+      "right": "start fresh elements array or explicitly filter isDeleted:true",
+      "rule": "isDeleted:true elements are still included in export. Remove them or they show up."
+    },
+    {
+      "id": "EXC-010",
+      "mistake": "angle field missing",
+      "wrong": "element without angle field",
+      "right": "angle: 0 (always include, even if zero)",
+      "rule": "angle is REQUIRED on all elements per base schema. Radians, not degrees."
+    },
+    {
+      "id": "EXC-011",
+      "mistake": "startArrowhead on arrow set to 'arrow' when only tail needed",
+      "wrong": "startArrowhead: 'arrow', endArrowhead: 'arrow' for a one-way flow",
+      "right": "startArrowhead: null, endArrowhead: 'arrow'",
+      "rule": "Bidirectional arrows are rare. Most flows: startArrowhead=null, endArrowhead='arrow'."
+    },
+    {
+      "id": "EXC-012",
+      "mistake": "fillStyle 'hachure' for solid-looking shapes",
+      "wrong": "fillStyle: 'hachure' when you want solid fill",
+      "right": "fillStyle: 'solid'",
+      "rule": "hachure renders diagonal line fill — use 'solid' for flat colored fills."
+    },
+    {
+      "id": "EXC-013",
+      "mistake": "Missing appState in root document",
+      "wrong": "{ type:'excalidraw', version:2, elements:[] }",
+      "right": "{ type:'excalidraw', version:2, source:'...', elements:[], appState:{gridSize:null,viewBackgroundColor:'#ffffff'}, files:{} }",
+      "rule": "Root document MUST have appState and files fields or excalidraw.com won't load it."
+    },
+    {
+      "id": "EXC-014",
+      "mistake": "Overlapping shapes",
+      "wrong": "two shapes with overlapping bounding boxes",
+      "right": "ensure >= 100px clear gap between any two shape edges",
+      "rule": "Tight spacing makes arrows unreadable. When in doubt, double your planned gap."
+    },
+    {
+      "id": "EXC-015",
+      "mistake": "text x/y outside container bounds",
+      "wrong": "containerId set but text x,y nowhere near the container",
+      "right": "for contained text, x/y can match container x/y — excalidraw auto-centers",
+      "rule": "Contained text position is auto-managed. Use same x,y,w,h as container for safety."
+    }
+  ]
+}

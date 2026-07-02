@@ -1,0 +1,5 @@
+name: excalidraw
+skill_type: F
+parent_bundle: diagram
+cloud_ready: false
+status: packed
