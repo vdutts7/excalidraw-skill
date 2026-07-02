@@ -1,7 +1,6 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/vdutts7/squircle/main/webp/excalidraw.webp" alt="logo" width="80" height="80" />
   <img src="https://raw.githubusercontent.com/vdutts7/squircle/main/webp/claude.webp" alt="logo" width="80" height="80" />
-  <img src="https://raw.githubusercontent.com/vdutts7/squircle/main/webp/json.webp" alt="logo" width="80" height="80" />
 </p>
 <h1 align="center">/excalidraw skill</h1>
 <p align="center"><em>agent skill that ships valid <code>.excalidraw</code> v2 JSON offline</em></p>
@@ -44,22 +43,36 @@ Same utterance in agent chat: *"draw a 3-tier stack: CDN, API, Postgres + Redis 
 ❌ **MCP live canvas for a file deliverable**
 
 1. session-bound
-2. not the artifact you attach to a PR or doc
+2. not the artifact you attach to a PR / doc
 
 ## Setup
 
+<p align="center">
+<a href="https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/install.sh">
+<img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782964582/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="40" />
+</a>
+</p>
+
 ```bash
-npx skills add vdutts7/excalidraw-skill -g -y
+curl -fsSL https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/install.sh | bash
 ```
 
-- Skill lands in agent skill dirs (`.cursor/skills/`, `.agents/skills/`, etc.) per [`skills` CLI](https://github.com/vercel-labs/skills)
+1. builds `~/Downloads/excalidraw.skill` (full skill for [claude.ai](https://claude.ai))
+2. upload at claude.ai → Settings → Skills
+
+Requires `git`, `python3`, and `rsync` (macOS/Linux).
 
 ## Output
 
-`.excalidraw` v2 JSON fields: `type`, `version`, `elements`, `appState`, `files`
+`*.excalidraw` v2 JSON fields:
+-`type`
+-`version`
+-`elements`
+-`appState`
+-`files`
 
-1. drag+drop `*.excalidraw` file into [Excalidraw](https://excalidraw.com) > Load from file
-2. check samples in [`examples/outputs/`](examples/outputs/)
+1. drag + drop `*.excalidraw` file into → [Excalidraw](https://excalidraw.com) > `Load from file`
+2. check → [`examples/outputs/`](examples/outputs/)
 
 ### Agent
 

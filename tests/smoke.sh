@@ -114,7 +114,7 @@ done
 
 echo "PASS"
 
-# 8. Pack-shape validator (stripped bundle; repo README/hooks excluded from upload surface)
+# 8. Pack-shape validator (assembled bundle; repo showcase layer excluded)
 
 echo -n "[8] pack-shape validator ... "
 
@@ -124,11 +124,7 @@ if [[ -n "$VALIDATE" && ( -x "$VALIDATE" || -f "$VALIDATE" ) ]]; then
 
   BUNDLE_TMP=$(mktemp -d)/excalidraw
 
-  mkdir -p "$BUNDLE_TMP"
-
-  cp -R "$SKILL_ROOT/registry" "$SKILL_ROOT/scripts" "$SKILL_ROOT/tests" "$BUNDLE_TMP/"
-
-  cp "$SKILL_ROOT/SKILL.md" "$BUNDLE_TMP/"
+  "$SKILL_ROOT/pack.sh" --out "$BUNDLE_TMP" >/dev/null
 
   bash "$VALIDATE" --root "$BUNDLE_TMP" --strict --l3 >/dev/null
 
