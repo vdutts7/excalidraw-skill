@@ -7,7 +7,7 @@
 
 <p align="center">
 <a href="https://res.cloudinary.com/ddyc1es5v/raw/upload/v1782970520/gh-repos/excalidraw-skill/excalidraw.skill" download="excalidraw.skill">
-<img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782967418/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="56" />
+<img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782971923/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="56" />
 </a>
 </p>
 
@@ -54,14 +54,15 @@
 
 <p align="center">
 <a href="https://res.cloudinary.com/ddyc1es5v/raw/upload/v1782970520/gh-repos/excalidraw-skill/excalidraw.skill" download="excalidraw.skill">
-<img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782967418/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="56" />
+<img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782971923/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="56" />
 </a>
 </p>
 
 1. click `Install` → `excalidraw.skill`
-2. upload to `claude.ai`
+2. upload to: `claude.ai`, cloud platforms, etc
+3. or `mv 'excalidraw.skill' 'excalidraw.zip'` → unzip locally for: Codex, Cursor, Claude Code, Open Code, etc
 
-(optional) Rebuild from source:
+(optional) from source:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/install.sh | bash
@@ -79,8 +80,9 @@ curl -fsSL https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/insta
 1. drag + drop `*.excalidraw` file into → [Excalidraw](https://excalidraw.com) > `Load from file`
 2. check → [`examples/outputs/`](examples/outputs/)
 
-### Agent
+### Usage
 
+User message to agent:
 ```markdown
 /excalidraw draw a 3-tier stack: cdn -> api -> postgres + redis
 ```
@@ -90,6 +92,7 @@ curl -fsSL https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/insta
 ```bash
 python3 scripts/generate.py examples/plans/pipeline.json \
   --out examples/outputs/pipeline.excalidraw
+
 python3 scripts/generate.py --validate examples/outputs/pipeline.excalidraw
 ```
 
