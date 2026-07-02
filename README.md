@@ -5,6 +5,12 @@
 <h1 align="center">/excalidraw skill</h1>
 <p align="center"><em>agent skill that ships valid <code>.excalidraw</code> v2 JSON offline</em></p>
 
+<p align="center">
+<a href="https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/install.sh">
+<img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782967418/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="56" />
+</a>
+</p>
+
 ---
 
 <p align="center">
@@ -15,11 +21,11 @@
   />
 </p>
 
-| Path | You get | Verdict |
-|---|---|---|
-| Mermaid / SVG / PNG only | pretty render, not editable in Excalidraw | ❌ dead end for hand-drawn edits |
-| Live MCP canvas | browser session, extra deps | ❌ wrong when you need a file artifact |
-| `/excalidraw` + `scripts/generate.py` | [`three_tier.excalidraw`](examples/outputs/three_tier.excalidraw) drag + drop + open in `excalidraw.com` | ✅ canonical JSON- no MCP |
+| | Path | You get | Verdict |
+|:---:|---|---|---|
+| ![](https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/mermaid.webp) | <ul><li>Mermaid</li><li>SVG</li><li>PNG only</li></ul> | <ul><li>pretty render</li><li>not editable in Excalidraw</li></ul> | ❌<br/><br/>dead end for hand-drawn edits |
+| ![](https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/mcp.webp) | <ul><li>Live MCP canvas</li></ul> | <ul><li>browser session</li><li>extra deps</li></ul> | ❌<br/><br/>wrong when you need a file artifact |
+| ![](https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/excalidraw.webp) | <ul><li>`/excalidraw`</li><li>`scripts/generate.py`</li></ul> | <ul><li>[`three_tier.excalidraw`](examples/outputs/three_tier.excalidraw) drag + drop</li><li>open in `excalidraw.com`</li></ul> | ✅<br/><br/>canonical JSON- no MCP |
 
 Same utterance in agent chat: *"draw a 3-tier stack: CDN, API, Postgres + Redis as excalidraw"*
 
@@ -49,7 +55,7 @@ Same utterance in agent chat: *"draw a 3-tier stack: CDN, API, Postgres + Redis 
 
 <p align="center">
 <a href="https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/install.sh">
-<img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782964582/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="40" />
+<img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782967418/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="56" />
 </a>
 </p>
 
