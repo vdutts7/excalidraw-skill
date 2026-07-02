@@ -6,7 +6,7 @@
 <p align="center"><em>agent skill that ships valid <code>.excalidraw</code> v2 JSON offline</em></p>
 
 <p align="center">
-<a href="https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/install.sh">
+<a href="https://res.cloudinary.com/ddyc1es5v/raw/upload/v1782970520/gh-repos/excalidraw-skill/excalidraw.skill" download="excalidraw.skill">
 <img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782967418/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="56" />
 </a>
 </p>
@@ -54,19 +54,19 @@ Same utterance in agent chat: *"draw a 3-tier stack: CDN, API, Postgres + Redis 
 ## Setup
 
 <p align="center">
-<a href="https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/install.sh">
+<a href="https://res.cloudinary.com/ddyc1es5v/raw/upload/v1782970520/gh-repos/excalidraw-skill/excalidraw.skill" download="excalidraw.skill">
 <img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782967418/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="56" />
 </a>
 </p>
 
+1. click badge → downloads `excalidraw.skill` to your browser Downloads folder
+2. upload at claude.ai → Settings → Skills
+
+Rebuild from source (optional):
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/install.sh | bash
 ```
-
-1. builds `~/Downloads/excalidraw.skill` (full skill for [claude.ai](https://claude.ai))
-2. upload at claude.ai → Settings → Skills
-
-Requires `git`, `python3`, and `rsync` (macOS/Linux).
 
 ## Output
 
