@@ -3,7 +3,7 @@
   <img src="https://raw.githubusercontent.com/vdutts7/squircle/main/webp/claude.webp" alt="logo" width="80" height="80" />
 </p>
 <h1 align="center">/excalidraw skill</h1>
-<p align="center"><em>agent skill that ships valid <code>.excalidraw</code> v2 JSON offline</em></p>
+<p align="center"><em>agent skill for making instant Excalidraw diagrams- for system design, mind maps, etc</p>
 
 <p align="center">
 <a href="https://res.cloudinary.com/ddyc1es5v/raw/upload/v1782970520/gh-repos/excalidraw-skill/excalidraw.skill" download="excalidraw.skill">
@@ -27,23 +27,22 @@
 | <img src="https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/mcp.webp" width="40" height="40" alt="MCP" /> | <ul><li>Live MCP canvas</li></ul> | <ul><li>browser session</li><li>extra deps</li></ul> | ❌<br/><br/>wrong when you need a file artifact |
 | <img src="https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/excalidraw.webp" width="40" height="40" alt="Excalidraw" /> | <ul><li>`/excalidraw`</li><li>`scripts/generate.py`</li></ul> | <ul><li>[`three_tier.excalidraw`](examples/outputs/three_tier.excalidraw) drag + drop</li><li>open in `excalidraw.com`</li></ul> | ✅<br/><br/>canonical JSON- no MCP |
 
-Same utterance in agent chat: *"draw a 3-tier stack: CDN, API, Postgres + Redis as excalidraw"*
 
 | Artifact | Honest extension |
 |---|---|
-| Plan the agent writes | `examples/plans/three_tier.json` |
-| File you open | [`examples/outputs/three_tier.excalidraw`](examples/outputs/three_tier.excalidraw) |
+| plan the agent writes | `examples/plans/three_tier.json` |
+| file you open | [`examples/outputs/three_tier.excalidraw`](examples/outputs/three_tier.excalidraw) |
 
 ## Issue
 
 ❌ **Raster / vector export only**
 
-1. PNG/SVG looks fine in README
-2. cannot drag boxes, re-route arrows, or fork layout in Excalidraw
+1. png/svg looks OK in README
+2. but can't: drag boxes, reroute arrows, fork layout on `excalidraw.com`
 
 ❌ **Hand-built JSON**
 
-1. `points[0]` must be `[0,0]`; `appState` + `files` required or excalidraw.com rejects load
+1. `points[0]` must be `[0,0]`; `appState` + `files` required or `excalidraw.com` rejects load
 2. zone z-order, `containerId`, `fontFamily` ints: easy to ship invalid v2
 
 ❌ **MCP live canvas for a file deliverable**
@@ -104,7 +103,7 @@ python3 scripts/generate.py --validate examples/outputs/pipeline.excalidraw
 
 | symptom | fix | stability | why |
 |---|---|---|---|
-| excalidraw.com blank load | add `appState` + `files` on root doc | stable | v2 loader requires both fields |
+| `excalidraw.com` blank load | add `appState` + `files` on root doc | stable | v2 loader requires both fields |
 | arrow geometry wrong | `points[0]` always `[0,0]`; offset via element `x`,`y` | stable | points are relative to anchor |
 | label clipped between boxes | >= 150px gap on labeled arrows | stable | label needs horizontal clearance |
 | text not inside shape | set `containerId` + shape `boundElements` | stable | binding is bidirectional |
