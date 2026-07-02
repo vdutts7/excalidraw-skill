@@ -7,7 +7,7 @@
 
 <p align="center">
 <a href="https://res.cloudinary.com/ddyc1es5v/raw/upload/v1782970520/gh-repos/excalidraw-skill/excalidraw.skill" download="excalidraw.skill">
-<img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782971923/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="56" />
+<img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782972571/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="56" />
 </a>
 </p>
 
@@ -38,7 +38,7 @@
 
 <p align="center">
 <a href="https://res.cloudinary.com/ddyc1es5v/raw/upload/v1782970520/gh-repos/excalidraw-skill/excalidraw.skill" download="excalidraw.skill">
-<img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782971923/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="56" />
+<img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782972571/readme-badges/readme-badge-install.png" alt="install /excalidraw" height="56" />
 </a>
 </p>
 
