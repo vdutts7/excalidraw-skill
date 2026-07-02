@@ -3,15 +3,17 @@
   <img src="https://raw.githubusercontent.com/vdutts7/squircle/main/webp/claude.webp" alt="logo" width="80" height="80" />
   <img src="https://raw.githubusercontent.com/vdutts7/squircle/main/webp/json.webp" alt="logo" width="80" height="80" />
 </p>
-<h1 align="center">excalidraw-skill</h1>
+<h1 align="center">/excalidraw skill</h1>
 <p align="center"><em>agent skill that ships valid <code>.excalidraw</code> v2 JSON offline</em></p>
 
 ---
 
 <p align="center">
-  <video
-    src="https://res.cloudinary.com/ddyc1es5v/video/upload/v1782953595/gh-repos/excalidraw-skill/excalidraw-skill-demo.mp4"
-  ></video>
+  <img
+    src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782954015/gh-repos/excalidraw-skill/excalidraw-skill-demo.gif"
+    alt="excalidraw-skill demo"
+    width="720"
+  />
 </p>
 
 | Path | You get | Verdict |
