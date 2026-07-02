@@ -17,11 +17,13 @@ Element def shortcuts (generate.py auto-fills required base fields):
   { "kind": "arrow",   "id", "x","y", "dx","dy", "stroke"?, "strokeStyle"?, "label"?, "startHead"?, "endHead"? }
   { "kind": "diamond", "id", "x","y","w","h", "bg","stroke", "label"? }
   { "kind": "ellipse", "id", "x","y","w","h", "bg","stroke", "label"? }
+  { "kind": "template", "ref", "x", "y", "id", "params"? }  # registry/templates LEGO blocks
   { "kind": "raw",     ... full excalidraw element ... }
 """
 
 import json
 import sys
+import re
 import random
 import time
 import argparse
@@ -82,6 +84,10 @@ ARCH_COLORS = {
     "neutral":   {"bg": "#f8f9fa", "stroke": "#495057"},
 }
 
+TEMPLATE_ROOT = Path(__file__).resolve().parent.parent / "registry" / "templates"
+REGISTRY_ROOT = Path(__file__).resolve().parent.parent / "registry"
+_PALETTE_CACHE = None
+
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -103,6 +109,89 @@ def _updated():
 
 def _uid(hint=""):
     return f"{hint}{random.randint(10000,99999)}"
+
+
+def _semantic_palette():
+    global _PALETTE_CACHE
+    if _PALETTE_CACHE is None:
+        with open(REGISTRY_ROOT / "colors.json") as f:
+            data = json.load(f)
+        _PALETTE_CACHE = data.get("SEMANTIC_ARCH_PALETTE", {})
+    return _PALETTE_CACHE
+
+
+def resolve_palette(role: str):
+    entry = _semantic_palette().get(role, _semantic_palette().get("neutral_box", {}))
+    return entry.get("bg", "transparent"), entry.get("stroke", "#1e1e1e")
+
+
+def _apply_palette(el_def: dict) -> dict:
+    role = el_def.get("palette")
+    if role:
+        bg, stroke = resolve_palette(role)
+        el_def.setdefault("bg", bg)
+        el_def.setdefault("stroke", stroke)
+    return el_def
+
+
+def _resolve_param(params: dict, key: str):
+    if "[" in key:
+        base, idx_s = key.split("[", 1)
+        return params[base][int(idx_s.rstrip("]"))]
+    return params[key]
+
+
+def _substitute_str(s: str, params: dict) -> str:
+    def repl(m):
+        key = m.group(1)
+        if key not in params and "[" not in key:
+            return m.group(0)
+        try:
+            return str(_resolve_param(params, key) if "[" in key else params[key])
+        except (KeyError, IndexError, TypeError, ValueError):
+            return m.group(0)
+    return re.sub(r"\{([^}]+)\}", repl, s)
+
+
+def _substitute_obj(obj, params: dict):
+    if isinstance(obj, str):
+        return _substitute_str(obj, params)
+    if isinstance(obj, dict):
+        return {k: _substitute_obj(v, params) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_substitute_obj(v, params) for v in obj]
+    return obj
+
+
+def load_template(ref: str) -> dict:
+    path = TEMPLATE_ROOT / f"{ref}.json"
+    if not path.is_file():
+        raise FileNotFoundError(f"template not found: {ref} ({path})")
+    with open(path) as f:
+        return json.load(f)
+
+
+def flatten_elements(elements, ox=0, oy=0):
+    """Expand kind:template refs into flat element defs with absolute coords."""
+    flat = []
+    for el_def in elements:
+        kind = el_def.get("kind", "raw")
+        if kind == "template":
+            tpl = load_template(el_def["ref"])
+            params = {**tpl.get("defaults", {}), **el_def.get("params", {})}
+            params["prefix"] = el_def.get("id", el_def.get("id_prefix", "t"))
+            px = el_def.get("x", 0) + ox
+            py = el_def.get("y", 0) + oy
+            body = _substitute_obj(tpl["elements"], params)
+            flat.extend(flatten_elements(body, px, py))
+        else:
+            el = dict(el_def)
+            if "x" in el:
+                el["x"] = el.get("x", 0) + ox
+            if "y" in el:
+                el["y"] = el.get("y", 0) + oy
+            flat.append(el)
+    return flat
 
 
 # ── Base element builder ──────────────────────────────────────────────────────
@@ -304,13 +393,14 @@ def execute_plan(plan: dict) -> dict:
     Build elements from a plan dict.
     plan = { "output": "file.excalidraw", "source": "...", "elements": [...] }
 
-    Each element in plan["elements"] can be a 'kind' shorthand or a 'raw' full element.
+    Each element in plan["elements"] can be a 'kind' shorthand, kind:template, or a 'raw' full element.
     """
     raw_elements = []
     extra_labels = []  # text labels added by make_label_for_shape
 
-    for el_def in plan.get("elements", []):
+    for el_def in flatten_elements(plan.get("elements", [])):
         kind = el_def.get("kind", "raw")
+        el_def = _apply_palette(el_def)
 
         if kind == "raw":
             raw_elements.append(el_def)

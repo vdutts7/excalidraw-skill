@@ -1,0 +1,19 @@
+{
+  "id": "title",
+  "version": 1,
+  "anchor": [0, 0],
+  "size": [400, 40],
+  "params": ["text"],
+  "elements": [
+    {
+      "kind": "text",
+      "id": "{prefix}",
+      "x": 0,
+      "y": 0,
+      "w": 400,
+      "h": 40,
+      "text": "{text}",
+      "fontSize": 24
+    }
+  ]
+}

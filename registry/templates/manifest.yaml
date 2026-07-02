@@ -1,0 +1,70 @@
+version: 1
+description: precomputed excalidraw LEGO blocks for compose-first plans
+
+read_when:
+  - before hand-authoring element coordinates
+  - when diagram uses known arch shapes (service, db, zone, pipeline, decision)
+
+instantiate_syntax:
+  kind: template
+  fields: [ref, x, y, id, params]
+
+blocks:
+  service_box:
+    path: blocks/service_box.json
+    size: [220, 120]
+    params: [label, role]
+    use_when: labeled service, API, worker, microservice node
+
+  database:
+    path: blocks/database.json
+    size: [180, 120]
+    params: [label]
+    use_when: Postgres, Redis, datastore, cache cylinder
+
+  decision:
+    path: blocks/decision.json
+    size: [200, 120]
+    params: [label]
+    use_when: branch, gate, yes/no diamond
+
+  zone:
+    path: blocks/zone.json
+    size: [600, 260]
+    params: [label]
+    use_when: layer, tier, bounded region
+
+  arrow_right:
+    path: blocks/arrow_right.json
+    size: [180, 0]
+    params: [label, stroke]
+    use_when: horizontal labeled flow between boxes
+
+  arrow_down:
+    path: blocks/arrow_down.json
+    size: [0, 180]
+    params: [label, stroke]
+    use_when: vertical tier step
+
+  title:
+    path: blocks/title.json
+    size: [400, 40]
+    params: [text]
+    use_when: diagram heading above layout
+
+composites:
+  pipeline_3:
+    path: composites/pipeline_3.json
+    size: [1060, 120]
+    params: [labels]
+    use_when: ingest-transform-load or any 3-box horizontal chain
+
+  tier_row:
+    path: composites/tier_row.json
+    size: [1100, 260]
+    params: [zone_label, labels]
+    use_when: one zone with three services in a row
+
+palette_roles:
+  source: registry/colors.json#SEMANTIC_ARCH_PALETTE
+  common: [frontend_ui, backend_api, database, cache, queue_event, decision_gate, zone_group, neutral_box]

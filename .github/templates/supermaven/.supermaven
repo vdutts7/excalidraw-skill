@@ -1,7 +1,0 @@
-{
-  "version": "1.0",
-  "context": {
-    "language": "typescript",
-    "framework": "react"
-  }
-}

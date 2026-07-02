@@ -1,6 +1,0 @@
-# Sourcery – project config
-# See https://sourcery.ai
-# Copy: cp .github/templates/sourcery/.sourcery.yaml .
-
-rules: []
-ignore: []

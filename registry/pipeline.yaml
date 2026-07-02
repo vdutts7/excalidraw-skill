@@ -1,0 +1,53 @@
+# excalidraw pipeline — routing lives in registry; SKILL.md is bridge only
+
+read_order:
+  - registry/templates/manifest.yaml
+  - registry/constants.json
+  - registry/element-schema.json
+  - registry/colors.json
+  - registry/layout-patterns.yaml
+  - registry/gotchas.json
+
+compose_first:
+  rule: prefer kind:template from registry/templates/ before hand-authoring raw coords
+  manifest: registry/templates/manifest.yaml
+  instantiate: '{ kind: template, ref: blocks/service_box, x, y, id, params: { label, role } }'
+  composites: [pipeline_3, tier_row]
+
+decision_tree:
+  input_is_image_or_ascii_or_description:
+    action: parse → pick registry/templates blocks → compose plan → run scripts/generate.py → present_files
+  input_is_existing_excalidraw:
+    action: read file → transform/augment elements → write new file → present_files
+  input_wants_mcp_live_canvas:
+    action: refuse; offline .excalidraw only; live canvas is excalidraw-toolkit
+  custom_shape_not_in_manifest:
+    action: hand-author plan elements using registry/element-schema.json + gotchas.json
+
+output_file_name:
+  rule: snake_case description + .excalidraw
+
+roughness_default:
+  rule: roughness=1 unless user says clean/smooth → roughness=0
+
+font_default:
+  rule: fontFamily=1 Virgil hand-drawn; fontFamily=5 Excalifont clean
+
+arrow_routing:
+  rule: points[0] always [0,0]; explicit points array; bindings only when tight snap needed
+
+container_text:
+  rule: containerId on text + boundElements on shape
+
+z_order:
+  rule: zones first → shapes → arrows → standalone text last
+
+index_field:
+  rule: unique ascending index strings per element
+
+execution:
+  1: read registry/templates/manifest.yaml + schemas/palettes
+  2: compose plan (templates + layout_patterns)
+  3: python3 scripts/generate.py <plan.json> --out <file.excalidraw>
+  4: python3 scripts/generate.py --validate <file.excalidraw>
+  5: present_files the .excalidraw file

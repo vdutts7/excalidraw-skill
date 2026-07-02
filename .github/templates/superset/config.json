@@ -1,6 +1,0 @@
-{
-  "setup": [
-    "npm install"
-  ],
-  "teardown": []
-}

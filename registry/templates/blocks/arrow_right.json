@@ -1,0 +1,20 @@
+{
+  "id": "arrow_right",
+  "version": 1,
+  "anchor": [0, 0],
+  "size": [180, 0],
+  "defaults": { "stroke": "#1e1e1e", "label": "" },
+  "params": ["label", "stroke"],
+  "elements": [
+    {
+      "kind": "arrow",
+      "id": "{prefix}",
+      "x": 0,
+      "y": 60,
+      "dx": 180,
+      "dy": 0,
+      "stroke": "{stroke}",
+      "label": "{label}"
+    }
+  ]
+}

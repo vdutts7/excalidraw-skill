@@ -1,0 +1,19 @@
+{
+  "id": "database",
+  "version": 1,
+  "anchor": [0, 0],
+  "size": [180, 120],
+  "params": ["label"],
+  "elements": [
+    {
+      "kind": "ellipse",
+      "id": "{prefix}",
+      "x": 0,
+      "y": 0,
+      "w": 180,
+      "h": 120,
+      "palette": "database",
+      "label": "{label}"
+    }
+  ]
+}

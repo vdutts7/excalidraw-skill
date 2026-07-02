@@ -11,8 +11,9 @@ mkdir -p "$OUT"
 for plan in "$PLANS"/*.json; do
   name="$(basename "$plan")"
   echo "[generate] $name"
-  python3 "$GEN" "$plan" --out "$OUT/$(python3 -c "import json; print(json.load(open('$plan'))['output'])")"
-  python3 "$GEN" --validate "$OUT/$(python3 -c "import json; print(json.load(open('$plan'))['output'])")"
+  out_name="$(python3 -c "import json; print(json.load(open('$plan'))['output'])")"
+  python3 "$GEN" "$plan" --out "$OUT/$out_name"
+  python3 "$GEN" --validate "$OUT/$out_name"
 done
 
 echo "[smoke] tests/smoke.sh"

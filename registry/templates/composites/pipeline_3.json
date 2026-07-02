@@ -1,0 +1,52 @@
+{
+  "id": "pipeline_3",
+  "version": 1,
+  "anchor": [0, 0],
+  "size": [1060, 120],
+  "defaults": {
+    "labels": ["Ingest", "Transform", "Load"]
+  },
+  "params": ["labels"],
+  "elements": [
+    {
+      "kind": "template",
+      "ref": "blocks/service_box",
+      "id": "p1",
+      "x": 0,
+      "y": 0,
+      "params": { "label": "{labels[0]}", "role": "frontend_ui" }
+    },
+    {
+      "kind": "template",
+      "ref": "blocks/arrow_right",
+      "id": "a1",
+      "x": 220,
+      "y": 0,
+      "params": { "label": "raw" }
+    },
+    {
+      "kind": "template",
+      "ref": "blocks/service_box",
+      "id": "p2",
+      "x": 400,
+      "y": 0,
+      "params": { "label": "{labels[1]}", "role": "queue_event" }
+    },
+    {
+      "kind": "template",
+      "ref": "blocks/arrow_right",
+      "id": "a2",
+      "x": 620,
+      "y": 0,
+      "params": { "label": "curated" }
+    },
+    {
+      "kind": "template",
+      "ref": "blocks/service_box",
+      "id": "p3",
+      "x": 800,
+      "y": 0,
+      "params": { "label": "{labels[2]}", "role": "database" }
+    }
+  ]
+}

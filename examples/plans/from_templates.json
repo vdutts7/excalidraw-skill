@@ -1,0 +1,23 @@
+{
+  "output": "from_templates.excalidraw",
+  "elements": [
+    {
+      "kind": "template",
+      "ref": "blocks/title",
+      "id": "title",
+      "x": 40,
+      "y": 0,
+      "params": { "text": "ETL from registry templates" }
+    },
+    {
+      "kind": "template",
+      "ref": "composites/pipeline_3",
+      "id": "pipe",
+      "x": 40,
+      "y": 80,
+      "params": {
+        "labels": ["Ingest", "Transform", "Load"]
+      }
+    }
+  ]
+}

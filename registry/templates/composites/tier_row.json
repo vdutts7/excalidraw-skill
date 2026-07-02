@@ -1,0 +1,48 @@
+{
+  "id": "tier_row",
+  "version": 1,
+  "anchor": [0, 0],
+  "size": [1100, 260],
+  "defaults": {
+    "zone_label": "Application",
+    "labels": ["API", "Worker", "Cache"]
+  },
+  "params": ["zone_label", "labels"],
+  "elements": [
+    {
+      "kind": "zone",
+      "id": "{prefix}zone",
+      "x": 0,
+      "y": 0,
+      "w": 1100,
+      "h": 260,
+      "bg": "#e9ecef",
+      "stroke": "#868e96",
+      "label": "{zone_label}"
+    },
+    {
+      "kind": "template",
+      "ref": "blocks/service_box",
+      "id": "s1",
+      "x": 40,
+      "y": 60,
+      "params": { "label": "{labels[0]}", "role": "backend_api" }
+    },
+    {
+      "kind": "template",
+      "ref": "blocks/service_box",
+      "id": "s2",
+      "x": 440,
+      "y": 60,
+      "params": { "label": "{labels[1]}", "role": "backend_api" }
+    },
+    {
+      "kind": "template",
+      "ref": "blocks/service_box",
+      "id": "s3",
+      "x": 840,
+      "y": 60,
+      "params": { "label": "{labels[2]}", "role": "cache" }
+    }
+  ]
+}

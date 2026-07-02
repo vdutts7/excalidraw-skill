@@ -1,0 +1,2 @@
+registry_skip_subpaths:
+  - templates

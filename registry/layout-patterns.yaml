@@ -65,7 +65,7 @@ layout_patterns:
       top_left:    { dx: -184, dy: -184 }
       top_right:   { dx: 184,  dy: -184 }
       bottom_left: { dx: -184, dy: 184  }
-      bottom_right:{ dx: 184,  dy: 184  }
+      bottom_right: { dx: 184, dy: 184 }
 
   data_flow_threading:
     _description: "Parameter/request traced through architectural layers."

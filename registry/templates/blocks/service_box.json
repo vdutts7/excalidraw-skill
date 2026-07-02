@@ -1,0 +1,20 @@
+{
+  "id": "service_box",
+  "version": 1,
+  "anchor": [0, 0],
+  "size": [220, 120],
+  "defaults": { "role": "neutral_box" },
+  "params": ["label", "role"],
+  "elements": [
+    {
+      "kind": "rect",
+      "id": "{prefix}",
+      "x": 0,
+      "y": 0,
+      "w": 220,
+      "h": 120,
+      "palette": "{role}",
+      "label": "{label}"
+    }
+  ]
+}

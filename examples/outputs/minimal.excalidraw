@@ -24,12 +24,12 @@
       "roundness": {
         "type": 3
       },
-      "seed": 2220972,
+      "seed": 8194058,
       "version": 1,
-      "versionNonce": 1888094,
+      "versionNonce": 4266937,
       "isDeleted": false,
       "boundElements": null,
-      "updated": 1782942750009,
+      "updated": 1782955431845,
       "link": null,
       "locked": false
     },
@@ -54,9 +54,9 @@
       "roundness": {
         "type": 3
       },
-      "seed": 7578209,
+      "seed": 5158521,
       "version": 1,
-      "versionNonce": 3590367,
+      "versionNonce": 5895053,
       "isDeleted": false,
       "boundElements": [
         {
@@ -64,7 +64,7 @@
           "type": "text"
         }
       ],
-      "updated": 1782942750009,
+      "updated": 1782955431845,
       "link": null,
       "locked": false
     },
@@ -89,9 +89,9 @@
       "roundness": {
         "type": 2
       },
-      "seed": 3725245,
+      "seed": 671874,
       "version": 1,
-      "versionNonce": 5847442,
+      "versionNonce": 3833022,
       "isDeleted": false,
       "boundElements": [
         {
@@ -99,7 +99,7 @@
           "type": "text"
         }
       ],
-      "updated": 1782942750009,
+      "updated": 1782955431845,
       "link": null,
       "locked": false
     },
@@ -124,12 +124,12 @@
       "roundness": {
         "type": 2
       },
-      "seed": 2993883,
+      "seed": 4642505,
       "version": 1,
-      "versionNonce": 6770753,
+      "versionNonce": 5836623,
       "isDeleted": false,
       "boundElements": null,
-      "updated": 1782942750009,
+      "updated": 1782955431845,
       "link": null,
       "locked": false
     },
@@ -152,12 +152,12 @@
       "frameId": null,
       "index": "c008",
       "roundness": null,
-      "seed": 8014289,
+      "seed": 4790491,
       "version": 1,
-      "versionNonce": 6974499,
+      "versionNonce": 2563422,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1782942750009,
+      "updated": 1782955431845,
       "link": null,
       "locked": false,
       "text": "Element kinds",
@@ -191,12 +191,12 @@
       "roundness": {
         "type": 2
       },
-      "seed": 8667651,
+      "seed": 6421857,
       "version": 1,
-      "versionNonce": 4741792,
+      "versionNonce": 7791386,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1782942750009,
+      "updated": 1782955431845,
       "link": null,
       "locked": false,
       "points": [
@@ -235,12 +235,12 @@
       "frameId": null,
       "index": "c002",
       "roundness": null,
-      "seed": 770972,
+      "seed": 1049247,
       "version": 1,
-      "versionNonce": 2089615,
+      "versionNonce": 4477333,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1782942750009,
+      "updated": 1782955431845,
       "link": null,
       "locked": false,
       "text": "Backend",
@@ -272,12 +272,12 @@
       "frameId": null,
       "index": "c004",
       "roundness": null,
-      "seed": 9015101,
+      "seed": 5137940,
       "version": 1,
-      "versionNonce": 1114081,
+      "versionNonce": 6697816,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1782942750009,
+      "updated": 1782955431845,
       "link": null,
       "locked": false,
       "text": "API Server",
@@ -309,12 +309,12 @@
       "frameId": null,
       "index": "c006",
       "roundness": null,
-      "seed": 5318509,
+      "seed": 958924,
       "version": 1,
-      "versionNonce": 9729122,
+      "versionNonce": 4424363,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1782942750009,
+      "updated": 1782955431845,
       "link": null,
       "locked": false,
       "text": "Decision",
@@ -346,12 +346,12 @@
       "frameId": null,
       "index": "c010",
       "roundness": null,
-      "seed": 736931,
+      "seed": 9902394,
       "version": 1,
-      "versionNonce": 9143011,
+      "versionNonce": 1750705,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1782942750009,
+      "updated": 1782955431845,
       "link": null,
       "locked": false,
       "text": "REST",

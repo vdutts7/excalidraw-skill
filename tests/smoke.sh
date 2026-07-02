@@ -110,7 +110,59 @@ for f in constants.json element-schema.json colors.json layout-patterns.yaml got
 
 done
 
+[[ -f "$SKILL_ROOT/registry/templates/manifest.yaml" ]] || { echo "MISSING: templates/manifest.yaml"; exit 1; }
+
 echo "PASS"
+
+# 8. Pack-shape validator (stripped bundle; repo README/hooks excluded from upload surface)
+
+echo -n "[8] pack-shape validator ... "
+
+VALIDATE="${SKILL_BUNDLE_VALIDATOR:-}"
+
+if [[ -n "$VALIDATE" && ( -x "$VALIDATE" || -f "$VALIDATE" ) ]]; then
+
+  BUNDLE_TMP=$(mktemp -d)/excalidraw
+
+  mkdir -p "$BUNDLE_TMP"
+
+  cp -R "$SKILL_ROOT/registry" "$SKILL_ROOT/scripts" "$SKILL_ROOT/tests" "$BUNDLE_TMP/"
+
+  cp "$SKILL_ROOT/SKILL.md" "$BUNDLE_TMP/"
+
+  bash "$VALIDATE" --root "$BUNDLE_TMP" --strict --l3 >/dev/null
+
+  /usr/bin/trash "$(dirname "$BUNDLE_TMP")" 2>/dev/null || true
+
+  echo "PASS"
+
+else
+
+  echo "SKIP (no validator)"
+
+fi
+
+# 7. Template composition (registry LEGO blocks)
+
+echo -n "[7] template composition ... "
+
+python3 "$GEN" "$SKILL_ROOT/examples/plans/from_templates.json" --out "$TMP/from_templates.excalidraw" 2>/dev/null
+
+python3 "$GEN" --validate "$TMP/from_templates.excalidraw"
+
+python3 -c "
+
+import json
+
+d=json.load(open('$TMP/from_templates.excalidraw'))
+
+els=[e for e in d['elements'] if not e.get('isDeleted')]
+
+assert len(els) >= 10, f'expected >=10 elements from templates, got {len(els)}'
+
+print('PASS')
+
+"
 
 # 5. Arrow points[0]=[0,0] invariant
 
