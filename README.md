@@ -9,7 +9,14 @@
 ---
 
 <p align="center">
-  <img src="https://res.cloudinary.com/ddyc1es5v/image/upload/v1782953487/gh-repos/excalidraw-skill/excalidraw-skill-demo.gif" alt="excalidraw-skill demo" width="720" />
+  <video
+    src="https://res.cloudinary.com/ddyc1es5v/video/upload/v1782953595/gh-repos/excalidraw-skill/excalidraw-skill-demo.mp4"
+    width="720"
+    autoplay
+    loop
+    muted
+    playsinline
+  ></video>
 </p>
 
 | Path | You get | Verdict |
