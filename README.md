@@ -11,10 +11,6 @@
 <p align="center">
   <video
     src="https://res.cloudinary.com/ddyc1es5v/video/upload/v1782953595/gh-repos/excalidraw-skill/excalidraw-skill-demo.mp4"
-    autoplay
-    loop
-    muted
-    playsinline
   ></video>
 </p>
 
