@@ -3,7 +3,7 @@
   <img src="https://raw.githubusercontent.com/vdutts7/squircle/main/webp/claude.webp" alt="logo" width="80" height="80" />
 </p>
 <h1 align="center">/excalidraw skill</h1>
-<p align="center"><em>agent skill for making instant Excalidraw diagrams- for system design, mind maps, etc</p>
+<p align="center"><em>agent skill for making instant Excalidraw diagrams- for system design, mind maps, etc</em></p>
 
 <p align="center">
 <a href="https://res.cloudinary.com/ddyc1es5v/raw/upload/v1782970520/gh-repos/excalidraw-skill/excalidraw.skill" download="excalidraw.skill">
