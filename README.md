@@ -23,9 +23,9 @@
 
 | | Path | You get | Verdict |
 |:---:|---|---|---|
-| ![](https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/mermaid.webp) | <ul><li>Mermaid</li><li>SVG</li><li>PNG only</li></ul> | <ul><li>pretty render</li><li>not editable in Excalidraw</li></ul> | ❌<br/><br/>dead end for hand-drawn edits |
-| ![](https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/mcp.webp) | <ul><li>Live MCP canvas</li></ul> | <ul><li>browser session</li><li>extra deps</li></ul> | ❌<br/><br/>wrong when you need a file artifact |
-| ![](https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/excalidraw.webp) | <ul><li>`/excalidraw`</li><li>`scripts/generate.py`</li></ul> | <ul><li>[`three_tier.excalidraw`](examples/outputs/three_tier.excalidraw) drag + drop</li><li>open in `excalidraw.com`</li></ul> | ✅<br/><br/>canonical JSON- no MCP |
+| <img src="https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/mermaid.webp" width="40" height="40" alt="Mermaid" /> | <ul><li>Mermaid</li><li>SVG</li><li>PNG only</li></ul> | <ul><li>pretty render</li><li>not editable in Excalidraw</li></ul> | ❌<br/><br/>dead end for hand-drawn edits |
+| <img src="https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/mcp.webp" width="40" height="40" alt="MCP" /> | <ul><li>Live MCP canvas</li></ul> | <ul><li>browser session</li><li>extra deps</li></ul> | ❌<br/><br/>wrong when you need a file artifact |
+| <img src="https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/excalidraw.webp" width="40" height="40" alt="Excalidraw" /> | <ul><li>`/excalidraw`</li><li>`scripts/generate.py`</li></ul> | <ul><li>[`three_tier.excalidraw`](examples/outputs/three_tier.excalidraw) drag + drop</li><li>open in `excalidraw.com`</li></ul> | ✅<br/><br/>canonical JSON- no MCP |
 
 Same utterance in agent chat: *"draw a 3-tier stack: CDN, API, Postgres + Redis as excalidraw"*
 
@@ -59,10 +59,10 @@ Same utterance in agent chat: *"draw a 3-tier stack: CDN, API, Postgres + Redis 
 </a>
 </p>
 
-1. click badge → downloads `excalidraw.skill` to your browser Downloads folder
-2. upload at claude.ai → Settings → Skills
+1. click `Install` → `excalidraw.skill`
+2. upload to `claude.ai`
 
-Rebuild from source (optional):
+(optional) Rebuild from source:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/install.sh | bash
@@ -82,7 +82,7 @@ curl -fsSL https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/insta
 
 ### Agent
 
-```text
+```markdown
 /excalidraw draw a 3-tier stack: cdn -> api -> postgres + redis
 ```
 
