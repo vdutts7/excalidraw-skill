@@ -21,10 +21,11 @@
   />
 </p>
 
-| | Path | You get | Verdict |
+| | path | you get | verdict |
 |:---:|---|---|---|
-| <img src="https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/mermaid.webp" width="40" height="40" alt="Mermaid" /> | <ul><li>Mermaid</li><li>SVG</li><li>PNG only</li></ul> | <ul><li>pretty render</li><li>not editable in Excalidraw</li></ul> | ❌<br/><br/>dead end for hand-drawn edits |
-| <img src="https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/mcp.webp" width="40" height="40" alt="MCP" /> | <ul><li>Live MCP canvas</li></ul> | <ul><li>browser session</li><li>extra deps</li></ul> | ❌<br/><br/>wrong when you need a file artifact |
+| <img src="https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/mermaid.webp" width="40" height="40" alt="Mermaid" /> | <ul><li>Mermaid</li><li>SVG</li><li>PNG only</li></ul> | <ul><li>pretty render in README</li><li>not editable on `excalidraw.com`</li><li>can't drag boxes, reroute arrows, fork layout</li></ul> | ❌<br/><br/>dead end for hand-drawn edits |
+| <img src="https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/json.webp" width="40" height="40" alt="JSON" /> | <ul><li>hand-built JSON</li><li>raw v2 by hand</li></ul> | <ul><li>`points[0]` must be `[0,0]`</li><li>`appState` + `files` required or load fails</li><li>`containerId`, `fontFamily` ints, zone z-order: easy invalid v2</li></ul> | ❌<br/><br/>easy to ship broken files |
+| <img src="https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/mcp.webp" width="40" height="40" alt="MCP" /> | <ul><li>Live MCP canvas</li></ul> | <ul><li>browser session</li><li>extra deps</li><li>session-bound</li><li>not a file you attach to a PR or doc</li></ul> | ❌<br/><br/>wrong when you need a file artifact |
 | <img src="https://raw.githubusercontent.com/vdutts7/squircle/refs/heads/main/webp/excalidraw.webp" width="40" height="40" alt="Excalidraw" /> | <ul><li>`/excalidraw`</li><li>`scripts/generate.py`</li></ul> | <ul><li>[`three_tier.excalidraw`](examples/outputs/three_tier.excalidraw) drag + drop</li><li>open in `excalidraw.com`</li></ul> | ✅<br/><br/>canonical JSON- no MCP |
 
 
@@ -32,23 +33,6 @@
 |---|---|
 | plan the agent writes | `examples/plans/three_tier.json` |
 | file you open | [`examples/outputs/three_tier.excalidraw`](examples/outputs/three_tier.excalidraw) |
-
-## Issue
-
-❌ **Raster / vector export only**
-
-1. png/svg looks OK in README
-2. but can't: drag boxes, reroute arrows, fork layout on `excalidraw.com`
-
-❌ **Hand-built JSON**
-
-1. `points[0]` must be `[0,0]`; `appState` + `files` required or `excalidraw.com` rejects load
-2. zone z-order, `containerId`, `fontFamily` ints: easy to ship invalid v2
-
-❌ **MCP live canvas for a file deliverable**
-
-1. session-bound
-2. not the artifact you attach to a PR / doc
 
 ## Setup
 
@@ -58,11 +42,10 @@
 </a>
 </p>
 
-1. click `Install` → `excalidraw.skill`
-2. upload to: `claude.ai`, cloud platforms, etc
-3. or `mv 'excalidraw.skill' 'excalidraw.zip'` → unzip locally for: Codex, Cursor, Claude Code, Open Code, etc
+A. click `Install` → `excalidraw.skill` → upload to: `claude.ai`, cloud platforms, etc
+- or `mv excalidraw.skill excalidraw.zip`, then unzip locally for → Codex, Cursor, Claude Code, Pi, OpenClaw, etc
 
-(optional) from source:
+B. or from source:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/install.sh | bash
@@ -70,7 +53,7 @@ curl -fsSL https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/insta
 
 ## Output
 
-`*.excalidraw` v2 JSON fields:
+`*.excalidraw` file with v2 JSON fields:
 -`type`
 -`version`
 -`elements`
@@ -80,12 +63,6 @@ curl -fsSL https://raw.githubusercontent.com/vdutts7/excalidraw-skill/main/insta
 1. drag + drop `*.excalidraw` file into → [Excalidraw](https://excalidraw.com) > `Load from file`
 2. check → [`examples/outputs/`](examples/outputs/)
 
-### Usage
-
-User message to agent:
-```markdown
-/excalidraw draw a 3-tier stack: cdn -> api -> postgres + redis
-```
 
 ### Generator
 
@@ -96,7 +73,14 @@ python3 scripts/generate.py examples/plans/pipeline.json \
 python3 scripts/generate.py --validate examples/outputs/pipeline.excalidraw
 ```
 
-### Examples
+### Usage
+
+**User:**
+```markdown
+/excalidraw draw a 3-tier stack: cdn -> api -> postgres + redis
+```
+
+### Ex
 
 ```bash
 ./examples/run-all.sh
